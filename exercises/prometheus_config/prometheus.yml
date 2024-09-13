@@ -1,0 +1,17 @@
+global:
+  scrape_interval:     15s # By default, scrape targets every 15 seconds.
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+  - job_name: 'prometheus'
+    scrape_interval: 60s
+    static_configs:
+      - targets: ['prometheus:9090']
+  
+# tells Prometheus to scrape metrics from statsd over port 9102
+  - job_name: 'dataset_metrics'
+    # scrape_interval: 1s
+    static_configs:
+      - targets: ['statsd:9102'] # see statsd-exporter further down
+        labels: {'pipeline': 'drift-pipeline'} # optional: just a way to identify the system exposing metrics

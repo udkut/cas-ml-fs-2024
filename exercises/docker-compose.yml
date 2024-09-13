@@ -1,0 +1,7 @@
+include:
+  - docker_includes/networks.yml
+  - containers/minio.yml
+  - containers/development_env/development_env.yml
+  - containers/mlflow/mlflow.yml
+  - containers/message-broker/message-broker.yml
+  - containers/monitoring/monitoring.yml
